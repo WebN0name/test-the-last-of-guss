@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #fff7ed;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #c2410c;
+  --primary-foreground: #ffffff;
+  --primary-hover: #9a3412;
+  --secondary: #0369a1;
+  --secondary-foreground: #ffffff;
+  --muted: #ffedd5;
+  --muted-foreground: #57534e;
+  --accent: #fbbf24;
+  --accent-foreground: #1c1917;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --destructive-soft: #fee2e2;
+  --border: #fed7aa;
+  --input: #78716c;
+  --ring: #c2410c;
+  --radius: 1.25rem;
+  --shadow-clay: inset -2px -2px 8px rgb(0 0 0 / 0.06), 4px 4px 12px rgb(194 65 12 / 0.12);
+  --shadow-press: inset 2px 2px 6px rgb(0 0 0 / 0.12);
+  --status-cooldown-bg: #fef3c7;
+  --status-cooldown-fg: #78350f;
+  --status-active-bg: #dcfce7;
+  --status-active-fg: #166534;
+  --status-finished-bg: #e7e5e4;
+  --status-finished-fg: #44403c;
+}
+
+.dark {
+  --background: #1c1917;
+  --foreground: #fafaf9;
+  --card: #292524;
+  --card-foreground: #fafaf9;
+  --popover: #292524;
+  --popover-foreground: #fafaf9;
+  --primary: #fb923c;
+  --primary-foreground: #1c1917;
+  --primary-hover: #fdba74;
+  --secondary: #38bdf8;
+  --secondary-foreground: #0c1a24;
+  --muted: #44403c;
+  --muted-foreground: #a8a29e;
+  --accent: #fbbf24;
+  --accent-foreground: #1c1917;
+  --destructive: #f87171;
+  --destructive-foreground: #1c1917;
+  --destructive-soft: #450a0a;
+  --border: #44403c;
+  --input: #a8a29e;
+  --ring: #fb923c;
+  --shadow-clay: inset -2px -2px 8px rgb(0 0 0 / 0.35), 4px 4px 12px rgb(0 0 0 / 0.5);
+  --shadow-press: inset 2px 2px 6px rgb(0 0 0 / 0.5);
+  --status-cooldown-bg: #451a03;
+  --status-cooldown-fg: #fde68a;
+  --status-active-bg: #052e16;
+  --status-active-fg: #bbf7d0;
+  --status-finished-bg: #44403c;
+  --status-finished-fg: #d6d3d1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-status-cooldown-bg: var(--status-cooldown-bg);
+  --color-status-cooldown-fg: var(--status-cooldown-fg);
+  --color-status-active-bg: var(--status-active-bg);
+  --color-status-active-fg: var(--status-active-fg);
+  --color-status-finished-bg: var(--status-finished-bg);
+  --color-status-finished-fg: var(--status-finished-fg);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Fredoka', 'Nunito', sans-serif;
+  --shadow-clay: var(--shadow-clay);
+  --shadow-press: var(--shadow-press);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  body {
+    @apply min-h-dvh;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading font-bold leading-tight;
+  }
+}
+
+@layer components {
+  .clay-card {
+    @apply rounded-lg border-[3px] border-border bg-card text-card-foreground shadow-clay;
+  }
+  .clay-press {
+    @apply transition-transform duration-200 ease-out active:scale-95 motion-reduce:transition-none motion-reduce:active:scale-100;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}

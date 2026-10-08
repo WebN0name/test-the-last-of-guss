@@ -1,0 +1,4 @@
+src/shared/api/schema.d.ts
+dist
+coverage
+node_modules
